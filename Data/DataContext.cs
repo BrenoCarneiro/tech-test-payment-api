@@ -5,8 +5,10 @@ namespace PaymentApi.Data
 {
     public class DataContext : DbContext
     {
-        public DbSet<Venda> Vendas { get; set; }
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        {
+        }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlite(connectionString: "DataSource=vendas.db;Cache=Shared");
+        public DbSet<Venda> Vendas { get; set; } = null!;
     }
 }

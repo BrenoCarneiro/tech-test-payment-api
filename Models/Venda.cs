@@ -1,22 +1,23 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace PaymentApi.Models
 {
     public class Venda
     {
         [Key]
-        public int IdVenda { get; set; }
-        public int IdVendedor { get; set;}
-        public string NomeVendedor { get; set;}
-        [MaxLength(11)]
-        public int CpfVendedor { get; set;}
+        public int Id { get; set; }
+        public int IdVendedor { get; set; }
+        public string NomeVendedor { get; set; }
+        public int CpfVendedor { get; set; }
         public string EmailVendedor { get; set; }
-        [MaxLength(11)]
         public int TelefoneVendedor { get; set; }
-        [Required]
+        public DateTime Data { get; set; }
         public string Produto { get; set; }
-        public enum Status
+        public Op Status { get; set; }
+
+        public enum Op
         {
             [Description("Aguardando Pagamento")]
             AguardandoPagamento,
