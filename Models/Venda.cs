@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PaymentApi.Models
 {
@@ -14,12 +14,13 @@ namespace PaymentApi.Models
         public string EmailVendedor { get; set; }
         public int TelefoneVendedor { get; set; }
         public DateTime Data { get; set; }
+        [Required]
         public string Produto { get; set; }
-        public Op Status { get; set; }
+        public Opcao Status { get; set; }
 
-        public enum Op
+        public enum Opcao
         {
-            [Description("Aguardando Pagamento")]
+            [Display(Name = "Aguardando Pagamento")]
             AguardandoPagamento,
             [Description("Cancelada")]
             Cancelada,
